@@ -15,7 +15,7 @@ public class App {
         while (run) {
             System.out.println("1. Se saldo, 2. Sätt in pengar, 3. Ta ut pengar, 4. Avsluta");
 
-            val = input.nextInt();
+            val = Failsafe(input);
 
             switch (val) {
                 case 1:
@@ -36,7 +36,7 @@ public class App {
                     break;
 
                 default:
-                System.out.println("test5");
+                System.out.println("Skriv endast siffrorna 1-4!");
                     break;
             }
         }
@@ -44,14 +44,14 @@ public class App {
 
     public static int sättIn (Scanner scanner){
         System.out.println("Ange summan du vill sätta in :");
-        saldo += scanner.nextInt();
+        saldo += Failsafe(scanner);
         System.out.println("Du har nu " + saldo + " kr i ditt konto.");
         return saldo;
     }
 
     public static int taUt (Scanner scanner){
         System.out.println("Ange summan du vill ta ut :");
-        int avdrag = scanner.nextInt();
+        int avdrag = Failsafe(scanner);
         saldo -= avdrag;
 
         if (saldo < 0){
@@ -62,5 +62,13 @@ public class App {
 
         System.out.println("Du har nu " + saldo + " kr i ditt konto.");
         return saldo;
+    }
+
+    public static int Failsafe(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Skriv bara siffror tack!");
+            scanner.next();  
+        }
+        return scanner.nextInt();
     }
 }
