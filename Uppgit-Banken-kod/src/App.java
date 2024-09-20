@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         
+        int saldo = 0;
+
         Scanner input = new Scanner(System.in);
         int val;
         boolean run = true;
@@ -14,7 +16,7 @@ public class App {
 
             switch (val) {
                 case 1:
-                    System.out.println("test1");
+                    System.out.println("Aktuell saldo : " + saldo + " kr.");
                     break;
 
                 case 2:
