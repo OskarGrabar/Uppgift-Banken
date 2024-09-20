@@ -31,7 +31,8 @@ public class App {
                     break;
 
                 case 4:
-                System.out.println("test4");
+                System.out.println("Hej då!");
+                run = false;    
                     break;
 
                 default:
