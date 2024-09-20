@@ -27,7 +27,7 @@ public class App {
                     break;
 
                 case 3:
-                System.out.println("test3");
+                taUt(input);
                     break;
 
                 case 4:
@@ -42,8 +42,15 @@ public class App {
     }
 
     public static int sättIn (Scanner scanner){
-        System.out.println("Ange summan du vill sätt in :");
-        saldo = scanner.nextInt();
+        System.out.println("Ange summan du vill sätta in :");
+        saldo = saldo + scanner.nextInt();
+        System.out.println("Du har nu " + saldo + " kr på din account");
+        return saldo;
+    }
+
+    public static int taUt (Scanner scanner){
+        System.out.println("Ange summan du vill ta ut :");
+        saldo = saldo - scanner.nextInt();
         System.out.println("Du har nu " + saldo + " kr på din account");
         return saldo;
     }
