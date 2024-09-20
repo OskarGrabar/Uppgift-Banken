@@ -1,9 +1,12 @@
 import java.util.Scanner;
 
 public class App {
+    
+    static int saldo = 0;
+
     public static void main(String[] args) throws Exception {
         
-        int saldo = 0;
+        
 
         Scanner input = new Scanner(System.in);
         int val;
@@ -20,7 +23,7 @@ public class App {
                     break;
 
                 case 2:
-                System.out.println("test2");
+                sättIn(input);
                     break;
 
                 case 3:
@@ -36,5 +39,12 @@ public class App {
                     break;
             }
         }
+    }
+
+    public static int sättIn (Scanner scanner){
+        System.out.println("Ange summan du vill sätt in :");
+        saldo = scanner.nextInt();
+        System.out.println("Du har nu " + saldo + " kr på din account");
+        return saldo;
     }
 }
