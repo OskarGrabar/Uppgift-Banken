@@ -44,15 +44,23 @@ public class App {
 
     public static int sättIn (Scanner scanner){
         System.out.println("Ange summan du vill sätta in :");
-        saldo = saldo + scanner.nextInt();
-        System.out.println("Du har nu " + saldo + " kr på din account");
+        saldo += scanner.nextInt();
+        System.out.println("Du har nu " + saldo + " kr i ditt konto.");
         return saldo;
     }
 
     public static int taUt (Scanner scanner){
         System.out.println("Ange summan du vill ta ut :");
-        saldo = saldo - scanner.nextInt();
-        System.out.println("Du har nu " + saldo + " kr på din account");
+        int avdrag = scanner.nextInt();
+        saldo -= avdrag;
+
+        if (saldo < 0){
+            System.out.println("Otillräcklig mängd på kontot!");
+            saldo += avdrag;
+            System.out.println("Försök igen!");
+        }
+
+        System.out.println("Du har nu " + saldo + " kr i ditt konto.");
         return saldo;
     }
 }
